@@ -1,0 +1,28 @@
+server:
+  port: 8020
+  servlet:
+    context-path: /
+    
+spring:  application:    name: consumer-user
+    
+eureka:
+  client:
+    service-url:
+      #链接注册中心集群
+       defaultZone: http://localhost:7000/eureka
+       
+       
+feign:
+  hystrix:
+    enabled: true                 #启动熔断器机制 !!!!!!!!!!!!!
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000  #设定断路器超时时间
+            
+ 
+    
